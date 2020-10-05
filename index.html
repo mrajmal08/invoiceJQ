@@ -17,103 +17,71 @@
 <body>
 <div class="container-fluid">
 
+    <div class="h2" style="color: green">
+        Invoice System
+    </div>
+
+
     <button id="addRowItem" class="btn-add-row btn btn-success mt-2">Add row</button>
     <br>
 
-    <form action="getData.php" method="post" id="formId">
-        <table class="table table-responsive tableId">
-            <tr class="heading">
-                <td class="h2" style="color: green">
-                    Invoice System
-                </td>
-            </tr>
+    <form method="post" action="getData.php" id="formId">
+        <table class="table table-responsive tableClass">
+            <thead class="heading">
+            <th>
+                Item
+            </th>
 
-            <tr class="heading">
-                <td>
-                    <strong>Item</strong>
-                </td>
+            <th>
+                Type
+            </th>
 
-                <td>
-                    <strong>Type</strong>
-                </td>
+            <th>
+                Quantity1
+            </th>
+            <th>
+                Quantity 2
+            </th>
 
-                <td>
-                    <strong>Quantity1 </strong>
-                </td>
-                <td>
-                    <strong>Quantity 2</strong>
-                </td>
+            <th>
+                Total
+            </th>
 
-                <td>
-                    <strong>Total</strong>
-                </td>
+            </thead>
 
-            </tr>
+            <tbody id="tableBody">
 
-            <tr class="item after">
-
-                <td>
-                    <select class="browser-default custom-select" name="node[0][item]">
-                        <option selected disabled>Select One</option>
-                        <option value="Project">Project</option>
-                        <option value="Service">Service</option>
-                    </select>
-                </td>
-
-                <td>
-                    <select class="browser-default custom-select" name="node[0][type]">
-                        <option selected disabled="">Select Type</option>
-                        <option value="Hourly">Hourly</option>
-                        <option value="Fixed">Fixed</option>
-                    </select>
-                </td>
-
-                <td>
-                    <input type="number" value="" name="node[0][qnty1]"
-                           placeholder=""/>
-                </td>
-
-                <td>
-                    <input type="number" value="" name="node[0][qnty2]"
-                           placeholder=""/>
-                </td>
-                <td>
-                    <input type="number" class="total" value="" id="total" name="node[0][total]"/>
-                </td>
-
-            </tr>
-
+            </tbody>
 
             <br>
-            <tr class="heading">
-                <td>
-                    <strong>Sub Total</strong>
-                </td>
-                <td>
-                    <strong>Tax%</strong>
-                </td>
-                <td>
-                    <strong>Discount</strong>
-                </td>
-                <td class="h4" style="color: red">
-                    <strong>Final Price</strong>
-                </td>
-            </tr>
-
+            <thead class="heading">
+            <th>
+                Sub Total
+            </th>
+            <th>
+                Tax%
+            </th>
+            <th>
+                Discount
+            </th>
+            <th class="h4" style="color: red">
+                Final Price
+            </th>
+            </thead>
             <tr class="calculation">
                 <td>
-                    <input type="text" value="" id="subTotal" name="finalPrice[subTotal]"/>
+                    <input type="text" name="finaResult[subTotal]" value="" class="subTotal final"/>
                 </td>
 
                 <td>
-                    <input type="number" name="finalPrice[tax]" value=""/>
+                    <input type="number" name="finaResult[tax]" value="" class="tax final"/>
                 </td>
 
                 <td>
-                    <input type="number" name="finalPrice[discount]" value=""/>
+                    <input type="number" name="finaResult[discount]" value="" class="discount final"/>
                 </td>
                 <td>
-                    <input type="text" id="finalPrice" name="finalPrice[finalPrice]" value=""/>
+                    <input type="text" name="finaResult[finalPrice]" class="finalPrice final" value=""/>
                 </td>
             </tr>
         </table>
@@ -125,31 +93,34 @@
 
 <table class="toCloneItem d-none">
     <tr class="item">
+
         <td>
-            <select class="browser-default custom-select" name="node[0][item]">
-                <option selected="" disabled="">Select One</option>
+            <select class="browser-default custom-select selectItem" name="item">
+                <option selected disabled>Select One</option>
                 <option value="Project">Project</option>
                 <option value="Service">Service</option>
             </select>
         </td>
 
         <td>
-            <select class="browser-default custom-select" name="node[0][type]">
-                <option selected="" disabled="">Select Type</option>
+            <select class="browser-default custom-select selectType" name="type">
+                <option selected disabled="">Select Type</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Fixed">Fixed</option>
             </select>
         </td>
 
         <td>
-            <input type="number" value="" name="node[0][qnty1]" placeholder="">
+            <input type="number" value="" name="qnty1" class="qnty1 value"
+                   placeholder=""/>
         </td>
 
         <td>
-            <input type="number" value="" name="node[0][qnty2]" placeholder="">
+            <input type="number" value="" name="qnty2" class="qnty2 value"
+                   placeholder=""/>
         </td>
         <td>
-            <input type="number" class="total" value="" name="node[0][total]">
+            <input type="number" name="total" value="" class="totalPrice value last"/>
         </td>
         <td class="deleteBtnTD">
             <button class="btn deleteBtn btn-danger mt-2 btn-sm">delete</button>
